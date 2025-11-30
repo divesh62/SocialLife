@@ -1,0 +1,192 @@
+/* ================= CONTAINER ================= */
+.container {
+  padding: 1.3rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 20px;
+}
+
+/* ================= BACKDROP ================= */
+.backDropContainer {
+  position: relative;
+  width: 100%;
+  height: clamp(22vh, 30vh, 34vh);
+  background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1080&auto=format&fit=crop");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+/* Profile Image + Overlay */
+.backDrop > img,
+.backDrop__overlay {
+  width: clamp(90px, 7vw, 140px);
+  height: clamp(90px, 7vw, 140px);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -25%;
+  left: 8%;
+  object-fit: cover;
+}
+
+.backDrop__overlay {
+  z-index: 2;
+  opacity: 0.05;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.backDrop__overlay:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.4;
+}
+
+/* ================= PROFILE DETAILS ================= */
+.profileContainer_details {
+  padding-top: clamp(5rem, 7vw, 8rem);
+}
+
+.nameEdit {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+}
+
+/* Inputs */
+.profileContainer_details input {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.6rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  outline: none;
+  text-align: center;
+}
+
+/* Textarea */
+.profileContainer_details textarea {
+  width: 100%;
+  max-width: 600px;
+  height: 120px;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgb(44, 44, 138);
+  font-size: 1.1rem;
+  resize: none;
+  outline: none;
+}
+
+/* ================= CARD ================= */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: 1rem;
+}
+
+.card__profileContainer {
+  display: flex;
+}
+
+.card__profileContainer img {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= BUTTONS ================= */
+.connectedButton,
+.connectButton,
+.connectionBtn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: fit-content;
+}
+
+.connectedButton {
+  background: #000;
+  color: #fff;
+}
+
+.connectButton {
+  background: #fff;
+  color: #000;
+}
+
+.connectionBtn {
+  background: #000;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* ================= WORK HISTORY ================= */
+.workHistoryContainer {
+  display: flex;
+  gap: 1.4rem;
+  padding-top: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.workHistory__container__card {
+  min-width: 220px;
+  border-radius: 1rem;
+  padding: 1.2rem 2rem;
+  background-color: #fff;
+  box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.workHistory__container__card:hover {
+  box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workHistoryContainer {
+    justify-content: center;
+  }
+
+  .workHistory__container__card {
+    width: 90%;
+  }
+
+  .connectedButton,
+  .connectButton,
+  .connectionBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+  .backDrop > img,
+  .backDrop__overlay {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profileContainer_details {
+    text-align: center;
+  }
+
+  .card {
+    align-items: center;
+  }
+}

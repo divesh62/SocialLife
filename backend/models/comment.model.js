@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ref } from "pdfkit";
 
 const CommentSchema = new mongoose.Schema({
 

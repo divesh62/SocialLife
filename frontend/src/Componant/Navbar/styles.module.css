@@ -1,0 +1,84 @@
+.container {
+  padding: 1.2rem;
+}
+
+/* ================= NAVBAR ================= */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+/* ================= OPTIONS ================= */
+.navbar__option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__option p {
+  cursor: pointer;
+}
+
+/* Button */
+.navbar__option__button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #0a66c2;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar__option__button:hover {
+  background-color: #fff;
+  color: #0a66c2;
+}
+
+/* ================= HAMBURGER ================= */
+.menuIcon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .navbar__option {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 1rem 0;
+    display: none;
+    z-index: 10;
+  }
+
+  .navbar__option.active {
+    display: flex;
+  }
+
+  .navbar__option__button {
+    margin-left: 0;
+    width: 80%;
+    text-align: center;
+  }
+}

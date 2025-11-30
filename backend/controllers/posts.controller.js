@@ -104,36 +104,50 @@ export const deletePost = async (req, res) => {
   }
 };
 
-export const commentPost = async(req,res)=>{
-  const {token , post_id , comment} = req.body;
-  try{
-      const user =  await User.findOne({token: token}).select("_id");
-      if(!user){
-          return res.status(404).json({message: "User not found"});
-      }
+// 
 
-      const post = await Post.findOne({_id: post_id});
-      if(!post){
-          return res.json(404).json({message: "Post not found"})
-      }
+import mongoose from "mongoose";
 
-      const newComment = new Comment({
-          userId: user._id,
-          postId: post_id,
-          comment: comment  
-      })
+export const commentPost = async (req, res) => {
+  const { token, post_id, commentBody } = req.body;
+  console.log("BODY:", req.body);
 
-      await newComment.save();
+  try {
+    // --- Validate post_id ---
+    if (!post_id || !mongoose.Types.ObjectId.isValid(post_id)) {
+      return res.status(400).json({ message: "Invalid or missing post_id" });
+    }
 
-      res.json({message:"Comment added"}) 
+    // --- Validate user ---
+    const user = await User.findOne({ token }).select("_id");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
-  }catch(err){
-      return res.status(500).json({message: err.message});  
+    // --- Validate post ---
+    const post = await Post.findOne({ _id: post_id });
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    // --- Create comment ---
+    const newComment = new Comment({
+      userId: user._id,
+      postId: post_id,
+      body: commentBody,
+    });
+
+    await newComment.save();
+
+    res.json({ message: "Comment added" });
+
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
   }
-}
+};
 
 export const get_comments_by_post = async(req,res)=>{
-    const {post_id} = req.body;
+    const {post_id} = req.query;
 
     try{
         const post = await Post.find({postId: post_id})

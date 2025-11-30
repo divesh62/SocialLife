@@ -247,7 +247,7 @@ export const downloadProfile = async(req,res)=>{
 
 export const sendConnectionRequest = async (req,res)=>{
     const { token, connectionId } = req.body;
-    console.log(connectionId)
+   
 
     if (!token || !connectionId) {
       return res.status(400).json({ message: "Missing token or connectionId" });
@@ -260,13 +260,13 @@ export const sendConnectionRequest = async (req,res)=>{
     try{
 
       const user = await User.findOne({token});
-            console.log(user);
+           
         if(!user){
             return res.status(404).json({message: "User not found"});
         }
 
         const connectionUser = await User.findById({_id: connectionId});
-        console.log("Connection User:", connectionUser);
+       
         if(!connectionUser){
             return res.status(400).json({message: "Connection user not found"});
         }
@@ -296,7 +296,7 @@ export const sendConnectionRequest = async (req,res)=>{
 
 export const getMyConnectionsRequest = async(req,res) =>{
     const {token} =  req.query;
-    console.log(token);
+    console.log("token",token);
     try{
 
         const user = await User.findOne({token});

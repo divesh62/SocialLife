@@ -1,0 +1,96 @@
+.backDropContainer{
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.backDropContainer>img{
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -25%;
+    left: 8%;
+    object-fit: cover;
+    text-align: center;
+}
+.container{
+    padding: 1.3rem;
+    background-color: rgb(230,230,230);
+    border-radius: 20px;
+
+}
+.profileContainer_details{
+    padding-top: 6rem;
+}
+
+.card__profileContainer{
+    width: 3.4rem;
+    height: auto;
+    height: 3.4rem;
+    object-fit: cover;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+.card__profileContainer{
+    display: flex;
+    
+}
+
+.card__profileContainer>img{
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.connectedButton{
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.connectButton{
+    background-color: #fff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.workHistoryContainer{
+    display: flex;
+    gap: 1.4rem;
+    padding-top: 1.4rem;
+    flex-wrap: wrap;
+   
+}
+.workHistory__container__card{
+   width: 100px;
+   min-width: fit-content;
+   border-radius: 1rem; 
+   padding-inline: 2.5rem;
+   padding-block: 1rem;
+   background-color: #fff;
+   box-shadow: 0px 10px 8px 10px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease-in-out;
+   margin-top: 20px;
+}
+
+.workHistory__container__card:hover{
+    box-shadow: 0px 10px 8px 8px rgba(0, 0, 0, 0.3);
+}

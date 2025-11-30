@@ -1,0 +1,301 @@
+/* Responsive optimized version of your CSS */
+
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #4b11d1;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+.loader:after {
+  color: #FF3D00;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+@keyframes spin {
+  0%, 100% { box-shadow: .2em 0px 0 0px currentcolor; }
+  12% { box-shadow: .2em .2em 0 0 currentcolor; }
+  25% { box-shadow: 0 .2em 0 0px currentcolor; }
+  37% { box-shadow: -.2em .2em 0 0 currentcolor; }
+  50% { box-shadow: -.2em 0 0 0 currentcolor; }
+  62% { box-shadow: -.2em -.2em 0 0 currentcolor; }
+  75% { box-shadow: 0px -.2em 0 0 currentcolor; }
+  87% { box-shadow: .2em -.2em 0 0 currentcolor; }
+}
+
+/* Layout */
+.scrollComponant {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 2rem;
+}
+
+/* Create post */
+.createPostContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 10svh;
+  width: 100%;
+  padding-inline: .8rem;
+}
+.textarea {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: .8rem;
+  border: 1px solid rgb(44, 44, 138);
+  outline: none;
+}
+.uploadButton {
+  position: absolute;
+  right: 20%;
+  bottom: 70%;
+  padding: .5rem 1rem;
+  background: rgb(44, 44, 244);
+  border-radius: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
+.fab {
+  background: rgb(44, 44, 224);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.profilePicture {
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Post Card */
+.singleCard {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.4);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  transition: .3s;
+}
+.singleCard__profilePicture {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding: 1.2rem;
+}
+.singleCard__profilePicture img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.singleCard__image img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.optionContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+}
+.optionContainer__option {
+  border: 1px solid rgb(44, 44, 224);
+  color: rgb(44, 44, 224);
+  padding: .4rem .8rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+  transition: .3s;
+}
+.optionContainer__option:hover {
+  background: rgb(44, 44, 224);
+  color: white;
+}
+
+/* Comments Modal */
+.commentsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.allCommentsContainer {
+  width: 90vw;
+  max-width: 450px;
+  height: 60vh;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.postCommentsContainer {
+  position: fixed;
+  bottom: 15%;
+  width: 70%;
+  max-width: 400px;
+  background: #b5c8db;
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.postCommentsContainer input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+}
+.postCommentsContainer__button {
+  padding: 1rem;
+  background: #000;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  .createPostContainer {
+    flex-direction: column;
+    height: auto;
+  }
+  .uploadButton {
+    right: 10%;
+    bottom: 85%;
+  }
+  .singleCard__profilePicture img {
+    width: 55px;
+    height: 55px;
+  }
+  .optionContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollComponant {
+    padding-inline: 1rem;
+  }
+  .singleCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .optionContainer {
+    padding: .7rem;
+  }
+  .postCommentsContainer {
+    width: 90%;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .singleCard__profilePicture>img {
+    width: 56px;
+    height: 56px;
+  }
+  .singleCard__image>img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+   
+  }
+  .allCommentsContainer {
+    width: 80vw;
+    height: 70vh;
+  }
+  .postCommentsContainer {
+    width: 70%;
+    left: 15%;
+    bottom: 10%;
+  }
+  .createPostContainer {
+    gap: 0.5rem;
+    height: auto;
+    flex-direction: column;
+  }
+  .textarea {
+    height: auto;
+  }
+  .uploadButton {
+    right: 5%;
+    bottom: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .singleCard {
+    flex-direction: column;
+    padding: 0;
+  }
+  .singleCard__profilePicture {
+    padding: 1rem;
+    padding-right: 1rem;
+  }
+  .singleCard__content {
+    padding: 1rem;
+    padding-right: 1rem;
+  }
+  .optionContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .postCommentsContainer>input {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+  .postCommentsContainer__button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+  .allCommentsContainer {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+
+
+

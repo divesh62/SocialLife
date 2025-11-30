@@ -1,0 +1,133 @@
+.container{
+  font-family: "Poppins", sans-serif;
+  padding: 1.2rem;
+}
+
+/* ====== MAIN HERO ====== */
+.mainContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  gap: 5rem;
+  padding-inline: 5rem;
+  flex-wrap: wrap; /* responsive wrap */
+  box-sizing: border-box;
+}
+
+/* ====== LEFT CONTENT ====== */
+.mainContainer__left{
+  flex: 0.5;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ====== ANIMATED HEADING ====== */
+.mainContainer__left>p:nth-child(1){
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: transparent;
+  background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+  background-size: 200%; 
+  background-position: 0 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-background 5s infinite alternate linear;
+}
+
+/* ====== SUBTEXT ====== */
+.mainContainer__left>p:nth-child(2){
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0a66c2;
+  margin-bottom: 1rem;
+}
+
+/* ====== BUTTON ====== */
+.mainContainer__left_buttons>p{
+  background: #0a66c2;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.mainContainer__left_buttons>p:hover{
+  background: #084d9f;
+  transform: translateY(-2px);
+}
+
+/* ====== RIGHT IMAGE / HERO ====== */
+.mainContainer__right{
+  flex: 0.5;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ====== BACKGROUND ANIMATION ====== */
+@keyframes animate-background {
+    0% { background-position: 0 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px){
+  .mainContainer{
+    padding-inline: 2rem;
+    gap: 3rem;
+  }
+
+  .mainContainer__left>p:nth-child(1){
+    font-size: 2rem;
+  }
+
+  .mainContainer__left_buttons>p{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px){
+  .mainContainer{
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+    padding-inline: 1.5rem;
+  }
+
+  .mainContainer__left, .mainContainer__right{
+    flex: 1;
+  }
+
+  .mainContainer__left>p:nth-child(1){
+    font-size: 1.8rem;
+  }
+
+  .mainContainer__left_buttons>p{
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px){
+  .mainContainer__left>p:nth-child(1){
+    font-size: 1.5rem;
+  }
+
+  .mainContainer__left>p:nth-child(2){
+    font-size: 1rem;
+  }
+
+  .mainContainer__left_buttons>p{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
