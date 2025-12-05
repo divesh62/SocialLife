@@ -60,7 +60,7 @@ export default function Login() {
          <div className={styles.cardContainer}>
             <div className={styles.cardContainer__left}>
                <p className={styles.cardLeft__heading}>{userLoginMethod ? "Login": "Register"}</p>
-              <p style={{color: authState.isError ? "red" : "green",textAlign:"center"}}> {authState.message.message}</p>
+              <p style={{color: authState.isError ? "red" : "green",textAlign:"center"}}> {authState.message?.message}</p>
 
                 <div className={styles.inputContainer}>
                     <div  className={styles.inputRow}>
