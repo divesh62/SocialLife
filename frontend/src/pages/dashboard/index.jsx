@@ -74,7 +74,7 @@ if(authState.user){
                         onClick={()=>{
                             handleUpload();
                         }}  
-                     className={styles.uploadButton}>File Upload</div>
+                     className={styles.uploadButton}>POST</div>
                    }
                 </div>
                 </wrapper>
