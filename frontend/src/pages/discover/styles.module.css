@@ -1,84 +1,276 @@
-/* Responsive optimized version of your CSS with fixed post image size */
+/* ========== Root Variables ========== */
+:root {
+  --primary: rgb(44,44,224);
+  --primary-dark: rgb(44,44,138);
+  --accent: #FF3D00;
+  --bg: #ffffff;
+  --text: #111;
+}
 
+/* Dark Mode */
+.dark {
+  --bg: #0f0f0f;
+  --text: #f0f0f0;
+}
+
+/* ========== Loader ========== */
 .loader {
   transform: rotateZ(45deg);
   perspective: 1000px;
   border-radius: 50%;
   width: 48px;
   height: 48px;
-  color: #4b11d1;
+  color: var(--primary);
   position: relative;
 }
+
 .loader:before,
 .loader:after {
   content: '';
-  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: inherit;
-  height: inherit;
+  inset: 0;
+  margin: auto;
   border-radius: 50%;
   transform: rotateX(70deg);
-  animation: 1s spin linear infinite;
+  animation: spin 1s linear infinite;
 }
+
 .loader:after {
-  color: #FF3D00;
+  color: var(--accent);
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
+
 @keyframes spin {
-  0%, 100% { box-shadow: .2em 0px 0 0px currentcolor; }
-  12% { box-shadow: .2em .2em 0 0 currentcolor; }
-  25% { box-shadow: 0 .2em 0 0px currentcolor; }
-  37% { box-shadow: -.2em .2em 0 0 currentcolor; }
-  50% { box-shadow: -.2em 0 0 0 currentcolor; }
-  62% { box-shadow: -.2em -.2em 0 0 currentcolor; }
-  75% { box-shadow: 0px -.2em 0 0 currentcolor; }
-  87% { box-shadow: .2em -.2em 0 0 currentcolor; }
+  0%, 100% { box-shadow: .2em 0 currentcolor; }
+  12% { box-shadow: .2em .2em currentcolor; }
+  25% { box-shadow: 0 .2em currentcolor; }
+  37% { box-shadow: -.2em .2em currentcolor; }
+  50% { box-shadow: -.2em 0 currentcolor; }
+  62% { box-shadow: -.2em -.2em currentcolor; }
+  75% { box-shadow: 0 -.2em currentcolor; }
+  87% { box-shadow: .2em -.2em currentcolor; }
 }
 
-/* Layout */
-.scrollComponant { display: flex; flex-direction: column; justify-content: center; width: 100%; padding-inline: 2rem; }
-.createPostContainer { display: flex; align-items: center; gap: 1rem; height: 10svh; width: 100%; padding-inline: .8rem; }
-.textarea { width: 100%; height: 100%; border-radius: 10px; padding: .8rem; border: 1px solid rgb(44,44,138); outline: none; }
-.uploadButton { position: absolute; right: 20%; bottom: 70%; padding: .5rem 1rem; background: rgb(44,44,244); border-radius: 1rem; color: #fff; cursor: pointer; transition: .3s; }
-.fab { background: rgb(44,44,224); border-radius: 100%; display: flex; justify-content: center; align-items: center; color: white; }
-.profilePicture { height: 80%; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; }
+/* ========== Layout ========== */
+.scrollComponant {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 2rem;
+}
 
-/* Post Card */
-.singleCard { width: 100%; background: white; border-radius: 10px; box-shadow: 0px 10px 10px rgba(0,0,0,0.4); margin-bottom: 2rem; display: flex; align-items: center; transition: .3s; }
-.singleCard__profilePicture { display: flex; align-items: start; gap: 1rem; padding: 1.2rem; }
-.singleCard__profilePicture img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; }
-.singleCard__image img { width: 100%; max-width: 600px; height: auto; border-radius: 10px; object-fit: cover; }
-.optionContainer { display: flex; justify-content: space-between; padding: 1rem; gap: 1rem; }
-.optionContainer__option { border: 1px solid rgb(44,44,224); color: rgb(44,44,224); padding: .4rem .8rem; border-radius: 12px; display: flex; align-items: center; gap: .4rem; cursor: pointer; transition: .3s; }
-.optionContainer__option:hover { background: rgb(44,44,224); color: white; }
+.createPostContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 10svh;
+  padding-inline: .8rem;
+}
 
-/* Comments Modal */
-.commentsContainer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 999; }
-.allCommentsContainer { width: 90vw; max-width: 450px; height: 60vh; background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-.postCommentsContainer { position: fixed; bottom: 15%; width: 70%; max-width: 400px; background: #b5c8db; padding: .5rem; border-radius: 10px; display: flex; gap: 1rem; justify-content: center; align-items: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-.postCommentsContainer input { flex: 1; padding: 1rem; border-radius: 10px; border: none; background: #fff; }
-.postCommentsContainer__button { padding: 1rem; background: #000; border-radius: 10px; color: white; cursor: pointer; }
+.textarea {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: .8rem;
+  border: 1px solid var(--primary-dark);
+  outline: none;
+}
 
-/* User Profiles */
-.allUserProfile { display: flex; flex-direction: column; gap: 1rem; padding: 1rem; width: 80%; }
-.userProfile { display: flex; margin: 1rem; padding: 1.2rem; align-items: center; box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.5); border-radius: 10px; cursor: pointer; transition: .3s; }
-.userProfile:hover { box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.7); }
-.userProfile>img { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; margin-right: 1rem; }
+.uploadButton {
+  position: absolute;
+  right: 20%;
+  bottom: 70%;
+  padding: .5rem 1rem;
+  background: var(--primary);
+  border-radius: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
 
-/* Responsive Media Queries */
+.fab {
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.profilePicture {
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ========== Post Cards ========== */
+.singleCard {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  transition: .3s;
+}
+
+.singleCard__profilePicture {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding: 1.2rem;
+}
+
+.singleCard__profilePicture img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.singleCard__image img {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.optionContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.optionContainer__option {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: .4rem .8rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.optionContainer__option:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ========== Comments Modal ========== */
+.commentsContainer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.allCommentsContainer {
+  width: 90vw;
+  max-width: 450px;
+  height: 60vh;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.postCommentsContainer {
+  position: fixed;
+  bottom: 15%;
+  width: 70%;
+  max-width: 400px;
+  background: #b5c8db;
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.postCommentsContainer input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+}
+
+.postCommentsContainer__button {
+  padding: 1rem;
+  background: #000;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ========== User Profiles ========== */
+.allUserProfile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.userProfile {
+  display: flex;
+  padding: 1.2rem;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+  margin: 1rem;
+}
+
+.userProfile:hover {
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}
+
+.userProfile > img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
-  .singleCard__profilePicture img { width: 56px; height: 56px; }
-  .singleCard__image img { max-width: 90vw; }
-  .createPostContainer { flex-direction: column; height: auto; gap: 0.5rem; }
-  .uploadButton { right: 5%; bottom: 10%; }
-  .optionContainer { flex-direction: column; align-items: stretch; }
+  .singleCard__profilePicture img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .createPostContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .uploadButton {
+    right: 5%;
+    bottom: 10%;
+  }
+
+  .optionContainer {
+    flex-direction: column;
+  }
 }
+
 @media (max-width: 480px) {
-  .singleCard { flex-direction: column; padding: 0; }
-  .singleCard__profilePicture { padding: 1rem; padding-right: 1rem; }
-  .optionContainer { padding: .7rem; gap: 0.5rem; flex-direction: column; }
-  .postCommentsContainer { width: 90%; }
+  .singleCard {
+    flex-direction: column;
+  }
+
+  .postCommentsContainer {
+    width: 90%;
+  }
 }

@@ -1,3 +1,5 @@
+/* ================= USER CARD ================= */
+
 .userCard {
     display: flex;
     align-items: center;
@@ -5,42 +7,60 @@
     gap: 1rem;
     padding: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+    background: #fff;
     margin-top: 2rem;
 }
 
+/* Profile Picture */
 .profilePicture > img {
     width: 5rem;
     height: 5rem;
-    border-radius: 100%;
+    border-radius: 50%;
     object-fit: cover;
     margin-right: 1rem;
 }
 
+/* Hover Effect */
 .userCard:hover {
-    box-shadow: 0px 1px 8px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
+/* Button (Right Aligned) */
 .acceptButton {
+    margin-left: auto; /* 🔥 pushes button to right side */
     background-color: #000;
     color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.55rem 1.2rem;
+    border-radius: 25px;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.25s ease;
+    font-weight: 500;
 }
 
-/* ----------------------------- */
-/* 📱 MOBILE RESPONSIVE STYLING */
-/* ----------------------------- */
-@media only screen and (max-width: 768px) {
+.acceptButton:hover {
+    background-color: #222;
+    transform: scale(1.03);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
     .userCard {
         flex-direction: column;
         text-align: center;
         gap: 0.8rem;
+    }
+
+    /* Center the button on mobile */
+    .acceptButton {
+        margin-left: 0;
+        width: 100%;
+        max-width: 220px;
     }
 
     .profilePicture > img {
@@ -48,15 +68,9 @@
         height: 4rem;
         margin-right: 0;
     }
-
-    .acceptButton {
-        width: 100%;
-        max-width: 200px;
-        font-size: 1rem;
-    }
 }
 
-@media only screen and (max-width: 450px) {
+@media (max-width: 450px) {
     .userCard {
         padding: 1rem;
     }
@@ -67,7 +81,7 @@
     }
 
     .acceptButton {
-        max-width: 100%;
         padding: 0.8rem;
+        max-width: 100%;
     }
 }
